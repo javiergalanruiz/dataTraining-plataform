@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %} Pagina de Inicio GIS {% endblock titulo %}
+{% block content %}
+{% load static %}
+{% include 'includes/header.html' %}
+
+<style>
+        #map {
+            height: 100vh;
+        }
+</style>
+<div id="map"></div>
+
+
+
+{% endblock content %}

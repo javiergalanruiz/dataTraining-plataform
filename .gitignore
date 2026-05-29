@@ -1,0 +1,29 @@
+# Entorno Virtual (¡Nunca se sube!)
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos compilados de Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de datos local (Para que no sobrescribas tu base de datos de desarrollo)
+*.sqlite3
+
+# Archivos de configuración del editor (Opcional, pero recomendado)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno/secretos (Donde guardas contraseñas y tu SECRET_KEY)
+.env

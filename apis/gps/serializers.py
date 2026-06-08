@@ -12,12 +12,16 @@ class GPSPointSerializer(serializers.ModelSerializer):
     timestamp = serializers.CharField()
 
     def validate_lat(self, value):
+        if not value or str(value).strip() == "" or "null" in str(value).lower() or "variable" in str(value):
+            return 0.0
         try:
             return float(str(value).replace(",", "."))
         except ValueError:
             raise serializers.ValidationError("Latitud no es un número válido.")
 
     def validate_lon(self, value):
+        if not value or str(value).strip() == "" or "null" in str(value).lower() or "variable" in str(value):
+            return 0.0
         try:
             return float(str(value).replace(",", "."))
         except ValueError:

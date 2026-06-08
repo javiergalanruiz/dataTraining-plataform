@@ -26,15 +26,20 @@ def map_view(request):
     return render(request, "inicio.html")
 
 
-def gps_points(request):
+def obtener_puntos(request):
+    datos = []
+    puntos = GPSPoint.objects.all()
+    for p in puntos:
+        datos.append({
+            "player_id": p.player_id,
+            "lat": p.lat,
+            "lon": p.lon,
+            "speed": p.speed,
+            "timestamp": p.timestamp,
+        })
 
-    points = GPSPoint.objects.all().values(
-        "lat",
-        "lon",
-        "speed",
-        "timestamp"
-    )
+    return JsonResponse(datos, safe=False)
 
-    return JsonResponse(list(points), safe=False)
+    
 
 

@@ -12,7 +12,9 @@ from .models import GPSPoint
 class GPSIngestView(APIView):
 
      def post(self, request):
-
+        print("BODY RECIBIDO:")
+        print(request.data)
+        print("LAT TYPE:", type(request.data.get("lat")))
         serializer = GPSPointSerializer(data=request.data)
 
         if serializer.is_valid():
